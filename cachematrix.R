@@ -15,7 +15,7 @@ makeCacheMatrix = function(x = matrix()){
                 inv <<- NULL
         }
         get <- function() x #get is now the same value as x (the matrix)
-        setsolve <- function(dummy_arg) inv <<- dummy_arg
+        setsolve <- function(set_inv) inv <<- set_inv
         getsolve <- function() inv
         # now create a list of the values and assign them names.
         list(set = set, get = get,
@@ -42,6 +42,6 @@ cacheSolve <- function(x, ...) {
         # now assign the calculated inverse to the x variable in makeCacheMatrix
         x$setsolve(inv.calculated) 
         # and output the solution
-        sol.calculated
+        inv.calculated
 }
 
